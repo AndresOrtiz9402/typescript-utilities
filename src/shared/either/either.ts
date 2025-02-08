@@ -14,7 +14,8 @@ class Either<L, R> {
   constructor(private readonly either: Left<L> | Right<R>) {
     if (this.either! instanceof Left && this.either! instanceof Right)
       throw Error(
-        'Either must be an instance of Left or Right. Use the static makeLeft or makeRight methods of class Either.'
+        `Either must be an instance of Left or Right.\n
+         Use the static makeLeft or makeRight methods of class Either.`
       );
   }
 
