@@ -6,7 +6,9 @@ type Input<Entity, OmitBase> = {
 
 type SuccessfulResult<Entity, Id> = { status: 'success'; data: BaseEntity<Entity, Id> };
 
-type FailureResult = { status: 'fail'; error: unknown };
+type StatusError = { statusCode: number; error: unknown };
+
+type FailureResult = { status: 'fail'; error: StatusError };
 
 type EitherResult<Entity, Id> = SuccessfulResult<Entity, Id> | FailureResult;
 
