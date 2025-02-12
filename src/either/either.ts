@@ -1,11 +1,15 @@
 class Left<L> {
-  constructor(readonly value?: L | null | undefined) {}
+  constructor(value: L) {
+    this.leftValue = value;
+  }
   readonly kind = 'left';
   readonly leftValue: L;
 }
 
 class Right<R> {
-  constructor(private readonly value?: R | null | undefined) {}
+  constructor(value: R) {
+    this.rightValue = value;
+  }
   readonly kind = 'right';
   readonly rightValue: R;
 }
@@ -55,11 +59,11 @@ class Either<L, R> {
     return this.either.kind === 'right';
   };
 
-  static makeLeft<L>(value?: L): Left<L> {
+  static makeLeft<L>(value: L): Left<L> {
     return new Left(value);
   }
 
-  static makeRight<R>(value?: R): Right<R> {
+  static makeRight<R>(value: R): Right<R> {
     return new Right(value);
   }
 }

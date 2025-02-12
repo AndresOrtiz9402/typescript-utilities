@@ -12,7 +12,7 @@ type FailureResult = { status: 'fail'; error: StatusError };
 
 type EitherResult<Entity, Id> = SuccessfulResult<Entity, Id> | FailureResult;
 
-export type BaseRepository<Entity, OmitBase, Id> = {
+type BaseRepository<Entity, OmitBase, Id> = {
   create(input: Omit<Input<Entity, OmitBase>, 'id'>): Promise<EitherResult<Entity, Id>>;
 
   deletedById(input: Id): Promise<{ status: 'success'; data: unknown } | FailureResult>;
