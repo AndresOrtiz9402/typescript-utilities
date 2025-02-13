@@ -1,9 +1,6 @@
 class Left<L> {
-  constructor(value: L) {
-    this.leftValue = value;
-  }
+  constructor(readonly leftValue: L) {}
   readonly kind = 'left';
-  readonly leftValue: L;
 }
 
 class Right<R> {
