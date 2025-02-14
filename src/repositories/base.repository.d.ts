@@ -19,4 +19,6 @@ type BaseRepository<Entity, OmitBaseEntity, Id> = {
     id: Id,
     updateInput: Partial<Input<Entity, OmitBaseEntity>>
   ): Promise<SuccessOrError<L, BaseEntity<Entity, Id>>>;
+
+  getPage(queryObj: Query.QueryObj<Entity>): Promise<SuccessOrError<BaseEntity<Entity, Id>[]>>;
 };
